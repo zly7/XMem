@@ -1,7 +1,8 @@
-progressbar2
-gdown
-gitpython
-git+https://github.com/cheind/py-thin-plate-spline
-hickle
-tensorboard
-numpy
+# progressbar2
+# gdown
+# gitpython
+# 下面这个库安装会导致torch版本被改变的问题，先没有安装
+# git+https://github.com/cheind/py-thin-plate-spline
+# hickle
+# tensorboard
+# numpy
