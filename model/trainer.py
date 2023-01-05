@@ -71,7 +71,7 @@ class XMemTrainer:
 
         with torch.cuda.amp.autocast(enabled=self.config['amp']): # 这个是混合进度训练
             # image features never change, compute once
-            print("frames shape" + str(frames.shape))# [4, 8, 3, 384, 384]
+            # print("frames shape" + str(frames.shape))# [batch, 8, 3, 384, 384]
             # 对于f后面的不同数据，其实就是提前做特征，相当于浅层特征和深层特征。key和shrinkage是论文提到的
             key, shrinkage, selection, f16, f8, f4 = self.XMem('encode_key', frames)
             # f16 [batch,8,1024,24,24]
@@ -115,7 +115,7 @@ class XMemTrainer:
                     values = torch.cat([values, v16.unsqueeze(3)], 3)
 
                 out[f'masks_{ti}'] = masks
-                out[f'logits_{ti}'] = logits
+                out[f'logits_{ti}'] = logits # todo:这个logit一直就比较奇怪，不知道是啥
 
             if self._do_log or self._is_train:
                 losses = self.loss_computer.compute({**data, **out}, num_filled_objects, it)

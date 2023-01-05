@@ -17,3 +17,8 @@ python -m torch.distributed.run --master_port 25763 --nproc_per_node=2 train.py 
 #### 现在vscode能debug ，是launch.json 的
 11G 2080TI batch_size可以调整成2
 python -m torch.distributed.run --master_port 25763 --nproc_per_node=2 train.py --exp_id retrain_stage3_only --stage 3 --load_network saves/XMem-s0.pth --num_workers 1 --s3_batch_size 2
+
+
+
+#### 查看tesorboard
+tensorboard --logdir=saves --bind_all

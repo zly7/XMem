@@ -1,0 +1,182 @@
+WARNING:__main__:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+CUDA Device count: 2
+CUDA Device count: 2
+I am rank 0 in this world of size 2!
+I am rank 1 in this world of size 2!
+We are assuming 2 GPUs.
+We are now starting stage 3
+I will take the role of logging!
+We are assuming 2 GPUs.
+We are now starting stage 3
+Single object mode: False
+git main f8100ca0362bea41c2cdc7264b4ba70206059b19
+hyperpara {'benchmark': False, 'no_amp': False, 'static_root': '../static', 'bl_root': '../BL30K', 'yv_root': '../YouTube', 'davis_root': '../DAVIS', 'num_workers': 0, 'key_dim': 64, 'value_dim': 512, 'hidden_dim': 64, 'deep_update_prob': 0.2, 'stages': '3', 's0_batch_size': 16, 's0_iterations': 150000, 's0_finetune': 0, 's0_steps': [], 's0_lr': 1e-05, 's0_num_ref_frames': 2, 's0_num_frames': 3, 's0_start_warm': 20000, 's0_end_warm': 70000, 's1_batch_size': 8, 's1_iterations': 250000, 's1_finetune': 0, 's1_steps': [200000], 's1_lr': 1e-05, 's1_num_ref_frames': 3, 's1_num_frames': 8, 's1_start_warm': 20000, 's1_end_warm': 70000, 's2_batch_size': 8, 's2_iterations': 150000, 's2_finetune': 10000, 's2_steps': [120000], 's2_lr': 1e-05, 's2_num_ref_frames': 3, 's2_num_frames': 8, 's2_start_warm': 20000, 's2_end_warm': 70000, 's3_batch_size': 2, 's3_iterations': 100000, 's3_finetune': 10000, 's3_steps': [80000], 's3_lr': 1e-05, 's3_num_ref_frames': 3, 's3_num_frames': 8, 's3_start_warm': 20000, 's3_end_warm': 70000, 'gamma': 0.1, 'weight_decay': 0.05, 'load_network': 'saves/XMem-s0.pth', 'load_checkpoint': None, 'log_text_interval': 100, 'log_image_interval': 1000, 'save_network_interval': 25000, 'save_checkpoint_interval': 50000, 'exp_id': 'retrain_stage3_only_s3', 'debug': False, 'amp': True, 'batch_size': 1, 'iterations': 100000, 'finetune': 10000, 'steps': [80000], 'lr': 1e-05, 'num_ref_frames': 3, 'num_frames': 8, 'start_warm': 20000, 'end_warm': 70000, 'single_object': False, 'num_gpus': 2}
+Single object mode: False
+model_size 62185224
+I am loading network from a disk, as listed in configuration
+I am loading network from a disk, as listed in configuration
+Converting weights from single object to multiple objects.
+Converting weights from single object to multiple objects.
+Randomly initialized padding.
+Randomly initialized padding.
+Network weight loaded from memory.
+Network weight loaded from saves/XMem-s0.pth
+Network weight loaded from memory.
+Network weight loaded from saves/XMem-s0.pth
+3459 out of 3471 videos accepted in ../YouTube/train_480p/JPEGImages.
+3459 out of 3471 videos accepted in ../YouTube/train_480p/JPEGImages.
+60 out of 90 videos accepted in ../DAVIS/2017/trainval/JPEGImages/480p.60 out of 90 videos accepted in ../DAVIS/2017/trainval/JPEGImages/480p.
+
+YouTube dataset size: 3459YouTube dataset size: 3459
+
+DAVIS dataset size: 60DAVIS dataset size: 60
+
+Concat dataset size: 3759Concat dataset size: 3759
+
+Renewed with max_skip=5Renewed with max_skip=5
+
+We approximately use 54 epochs.
+We approximately use 54 epochs.
+The skip value will change approximately at the following iterations: [10000, 30000, 90000]
+The skip value will change approximately at the following iterations: [10000, 30000, 90000]
+Current epoch: 1
+Current epoch: 1
+retrain_stage3_only_s3 - It    100 [TRAIN] [time         ]: 0.7735614
+retrain_stage3_only_s3 - It    100 [TRAIN] [total_loss   ]: 1.6470959
+retrain_stage3_only_s3 - It    100 [TRAIN] [p            ]: 1.0000000
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_1    ]: 0.0587597
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_1  ]: 0.0828907
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_2    ]: 0.0782599
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_2  ]: 0.0997167
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_3    ]: 0.1089130
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_3  ]: 0.1155694
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_4    ]: 0.1166026
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_4  ]: 0.1293229
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_5    ]: 0.1383058
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_5  ]: 0.1372619
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_6    ]: 0.1343060
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_6  ]: 0.1499278
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_7    ]: 0.1486978
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_7  ]: 0.1485610
+retrain_stage3_only_s3 - It    200 [TRAIN] [time         ]: 0.7284218
+retrain_stage3_only_s3 - It    200 [TRAIN] [total_loss   ]: 1.4561493
+retrain_stage3_only_s3 - It    200 [TRAIN] [p            ]: 1.0000000
+retrain_stage3_only_s3 - It    200 [TRAIN] [ce_loss_1    ]: 0.0556642
+retrain_stage3_only_s3 - It    200 [TRAIN] [dice_loss_1  ]: 0.0836432
+retrain_stage3_only_s3 - It    200 [TRAIN] [ce_loss_2    ]: 0.0594880
+retrain_stage3_only_s3 - It    200 [TRAIN] [dice_loss_2  ]: 0.1076253
+retrain_stage3_only_s3 - It    200 [TRAIN] [ce_loss_3    ]: 0.0714123
+retrain_stage3_only_s3 - It    200 [TRAIN] [dice_loss_3  ]: 0.1241987
+retrain_stage3_only_s3 - It    200 [TRAIN] [ce_loss_4    ]: 0.0734809
+retrain_stage3_only_s3 - It    200 [TRAIN] [dice_loss_4  ]: 0.1351346
+retrain_stage3_only_s3 - It    200 [TRAIN] [ce_loss_5    ]: 0.0879316
+retrain_stage3_only_s3 - It    200 [TRAIN] [dice_loss_5  ]: 0.1382457
+retrain_stage3_only_s3 - It    200 [TRAIN] [ce_loss_6    ]: 0.1067387
+retrain_stage3_only_s3 - It    200 [TRAIN] [dice_loss_6  ]: 0.1473855
+retrain_stage3_only_s3 - It    200 [TRAIN] [ce_loss_7    ]: 0.1110027
+retrain_stage3_only_s3 - It    200 [TRAIN] [dice_loss_7  ]: 0.1541974
+retrain_stage3_only_s3 - It    300 [TRAIN] [time         ]: 0.7615044
+retrain_stage3_only_s3 - It    300 [TRAIN] [total_loss   ]: 1.2291815
+retrain_stage3_only_s3 - It    300 [TRAIN] [p            ]: 1.0000000
+retrain_stage3_only_s3 - It    300 [TRAIN] [ce_loss_1    ]: 0.0512427
+retrain_stage3_only_s3 - It    300 [TRAIN] [dice_loss_1  ]: 0.0809907
+retrain_stage3_only_s3 - It    300 [TRAIN] [ce_loss_2    ]: 0.0652484
+retrain_stage3_only_s3 - It    300 [TRAIN] [dice_loss_2  ]: 0.0931840
+retrain_stage3_only_s3 - It    300 [TRAIN] [ce_loss_3    ]: 0.0738059
+retrain_stage3_only_s3 - It    300 [TRAIN] [dice_loss_3  ]: 0.0987069
+retrain_stage3_only_s3 - It    300 [TRAIN] [ce_loss_4    ]: 0.0762670
+retrain_stage3_only_s3 - It    300 [TRAIN] [dice_loss_4  ]: 0.1002068
+retrain_stage3_only_s3 - It    300 [TRAIN] [ce_loss_5    ]: 0.0724811
+retrain_stage3_only_s3 - It    300 [TRAIN] [dice_loss_5  ]: 0.1039118
+retrain_stage3_only_s3 - It    300 [TRAIN] [ce_loss_6    ]: 0.0826076
+retrain_stage3_only_s3 - It    300 [TRAIN] [dice_loss_6  ]: 0.1167563
+retrain_stage3_only_s3 - It    300 [TRAIN] [ce_loss_7    ]: 0.0911355
+retrain_stage3_only_s3 - It    300 [TRAIN] [dice_loss_7  ]: 0.1226360
+retrain_stage3_only_s3 - It    400 [TRAIN] [time         ]: 0.7663801
+retrain_stage3_only_s3 - It    400 [TRAIN] [total_loss   ]: 1.0796427
+retrain_stage3_only_s3 - It    400 [TRAIN] [p            ]: 1.0000000
+retrain_stage3_only_s3 - It    400 [TRAIN] [ce_loss_1    ]: 0.0487692
+retrain_stage3_only_s3 - It    400 [TRAIN] [dice_loss_1  ]: 0.0615270
+retrain_stage3_only_s3 - It    400 [TRAIN] [ce_loss_2    ]: 0.0500533
+retrain_stage3_only_s3 - It    400 [TRAIN] [dice_loss_2  ]: 0.0652494
+retrain_stage3_only_s3 - It    400 [TRAIN] [ce_loss_3    ]: 0.0610914
+retrain_stage3_only_s3 - It    400 [TRAIN] [dice_loss_3  ]: 0.0818879
+retrain_stage3_only_s3 - It    400 [TRAIN] [ce_loss_4    ]: 0.0644795
+retrain_stage3_only_s3 - It    400 [TRAIN] [dice_loss_4  ]: 0.0908581
+retrain_stage3_only_s3 - It    400 [TRAIN] [ce_loss_5    ]: 0.0737260
+retrain_stage3_only_s3 - It    400 [TRAIN] [dice_loss_5  ]: 0.0988341
+retrain_stage3_only_s3 - It    400 [TRAIN] [ce_loss_6    ]: 0.0802257
+retrain_stage3_only_s3 - It    400 [TRAIN] [dice_loss_6  ]: 0.1068320
+retrain_stage3_only_s3 - It    400 [TRAIN] [ce_loss_7    ]: 0.0859092
+retrain_stage3_only_s3 - It    400 [TRAIN] [dice_loss_7  ]: 0.1101992
+retrain_stage3_only_s3 - It    500 [TRAIN] [time         ]: 0.7605906
+retrain_stage3_only_s3 - It    500 [TRAIN] [total_loss   ]: 1.5030615
+retrain_stage3_only_s3 - It    500 [TRAIN] [p            ]: 1.0000000
+retrain_stage3_only_s3 - It    500 [TRAIN] [ce_loss_1    ]: 0.0648422
+retrain_stage3_only_s3 - It    500 [TRAIN] [dice_loss_1  ]: 0.0893406
+retrain_stage3_only_s3 - It    500 [TRAIN] [ce_loss_2    ]: 0.0766734
+retrain_stage3_only_s3 - It    500 [TRAIN] [dice_loss_2  ]: 0.1052524
+retrain_stage3_only_s3 - It    500 [TRAIN] [ce_loss_3    ]: 0.0867618
+retrain_stage3_only_s3 - It    500 [TRAIN] [dice_loss_3  ]: 0.1111699
+retrain_stage3_only_s3 - It    500 [TRAIN] [ce_loss_4    ]: 0.0955504
+retrain_stage3_only_s3 - It    500 [TRAIN] [dice_loss_4  ]: 0.1234465
+retrain_stage3_only_s3 - It    500 [TRAIN] [ce_loss_5    ]: 0.1079130
+retrain_stage3_only_s3 - It    500 [TRAIN] [dice_loss_5  ]: 0.1286312
+retrain_stage3_only_s3 - It    500 [TRAIN] [ce_loss_6    ]: 0.1172002
+retrain_stage3_only_s3 - It    500 [TRAIN] [dice_loss_6  ]: 0.1314936
+retrain_stage3_only_s3 - It    500 [TRAIN] [ce_loss_7    ]: 0.1182045
+retrain_stage3_only_s3 - It    500 [TRAIN] [dice_loss_7  ]: 0.1465812
+retrain_stage3_only_s3 - It    600 [TRAIN] [time         ]: 0.7524623
+retrain_stage3_only_s3 - It    600 [TRAIN] [total_loss   ]: 1.1843221
+retrain_stage3_only_s3 - It    600 [TRAIN] [p            ]: 1.0000000
+retrain_stage3_only_s3 - It    600 [TRAIN] [ce_loss_1    ]: 0.0490892
+retrain_stage3_only_s3 - It    600 [TRAIN] [dice_loss_1  ]: 0.0678216
+retrain_stage3_only_s3 - It    600 [TRAIN] [ce_loss_2    ]: 0.0556845
+retrain_stage3_only_s3 - It    600 [TRAIN] [dice_loss_2  ]: 0.0786651
+retrain_stage3_only_s3 - It    600 [TRAIN] [ce_loss_3    ]: 0.0632575
+retrain_stage3_only_s3 - It    600 [TRAIN] [dice_loss_3  ]: 0.0851447
+retrain_stage3_only_s3 - It    600 [TRAIN] [ce_loss_4    ]: 0.0769569
+retrain_stage3_only_s3 - It    600 [TRAIN] [dice_loss_4  ]: 0.0971101
+retrain_stage3_only_s3 - It    600 [TRAIN] [ce_loss_5    ]: 0.0824998
+retrain_stage3_only_s3 - It    600 [TRAIN] [dice_loss_5  ]: 0.1030588
+retrain_stage3_only_s3 - It    600 [TRAIN] [ce_loss_6    ]: 0.0940649
+retrain_stage3_only_s3 - It    600 [TRAIN] [dice_loss_6  ]: 0.1133225
+retrain_stage3_only_s3 - It    600 [TRAIN] [ce_loss_7    ]: 0.0992960
+retrain_stage3_only_s3 - It    600 [TRAIN] [dice_loss_7  ]: 0.1183498
+retrain_stage3_only_s3 - It    700 [TRAIN] [time         ]: 0.7930595
+retrain_stage3_only_s3 - It    700 [TRAIN] [total_loss   ]: 1.2750561
+retrain_stage3_only_s3 - It    700 [TRAIN] [p            ]: 1.0000000
+retrain_stage3_only_s3 - It    700 [TRAIN] [ce_loss_1    ]: 0.0468814
+retrain_stage3_only_s3 - It    700 [TRAIN] [dice_loss_1  ]: 0.0757965
+retrain_stage3_only_s3 - It    700 [TRAIN] [ce_loss_2    ]: 0.0578318
+retrain_stage3_only_s3 - It    700 [TRAIN] [dice_loss_2  ]: 0.0884013
+retrain_stage3_only_s3 - It    700 [TRAIN] [ce_loss_3    ]: 0.0705238
+retrain_stage3_only_s3 - It    700 [TRAIN] [dice_loss_3  ]: 0.0950015
+retrain_stage3_only_s3 - It    700 [TRAIN] [ce_loss_4    ]: 0.0810941
+retrain_stage3_only_s3 - It    700 [TRAIN] [dice_loss_4  ]: 0.1013811
+retrain_stage3_only_s3 - It    700 [TRAIN] [ce_loss_5    ]: 0.0896422
+retrain_stage3_only_s3 - It    700 [TRAIN] [dice_loss_5  ]: 0.1059655
+retrain_stage3_only_s3 - It    700 [TRAIN] [ce_loss_6    ]: 0.1056216
+retrain_stage3_only_s3 - It    700 [TRAIN] [dice_loss_6  ]: 0.1152965
+retrain_stage3_only_s3 - It    700 [TRAIN] [ce_loss_7    ]: 0.1173848
+retrain_stage3_only_s3 - It    700 [TRAIN] [dice_loss_7  ]: 0.1242334
+retrain_stage3_only_s3 - It    800 [TRAIN] [time         ]: 0.7617515
+retrain_stage3_only_s3 - It    800 [TRAIN] [total_loss   ]: 1.2915165
+retrain_stage3_only_s3 - It    800 [TRAIN] [p            ]: 1.0000000
+retrain_stage3_only_s3 - It    800 [TRAIN] [ce_loss_1    ]: 0.0529680
+retrain_stage3_only_s3 - It    800 [TRAIN] [dice_loss_1  ]: 0.0804593
+retrain_stage3_only_s3 - It    800 [TRAIN] [ce_loss_2    ]: 0.0719267
+retrain_stage3_only_s3 - It    800 [TRAIN] [dice_loss_2  ]: 0.0863747
+retrain_stage3_only_s3 - It    800 [TRAIN] [ce_loss_3    ]: 0.0748856
+retrain_stage3_only_s3 - It    800 [TRAIN] [dice_loss_3  ]: 0.0975519
+retrain_stage3_only_s3 - It    800 [TRAIN] [ce_loss_4    ]: 0.0775613
+retrain_stage3_only_s3 - It    800 [TRAIN] [dice_loss_4  ]: 0.1032309
+retrain_stage3_only_s3 - It    800 [TRAIN] [ce_loss_5    ]: 0.0878870
+retrain_stage3_only_s3 - It    800 [TRAIN] [dice_loss_5  ]: 0.1139773
+retrain_stage3_only_s3 - It    800 [TRAIN] [ce_loss_6    ]: 0.0906989
+retrain_stage3_only_s3 - It    800 [TRAIN] [dice_loss_6  ]: 0.1212475
+retrain_stage3_only_s3 - It    800 [TRAIN] [ce_loss_7    ]: 0.1041959
+retrain_stage3_only_s3 - It    800 [TRAIN] [dice_loss_7  ]: 0.1285507
