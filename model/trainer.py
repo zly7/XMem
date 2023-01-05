@@ -52,7 +52,7 @@ class XMemTrainer:
         self.save_checkpoint_interval = config['save_checkpoint_interval']
         if config['debug']:
             self.log_text_interval = self.log_image_interval = 1
-
+    # 这个do_pass是最核心的训练函数，训练一个视频
     def do_pass(self, data, it=0):
         # No need to store the gradient outside training
         torch.set_grad_enabled(self._is_train)
@@ -69,12 +69,14 @@ class XMemTrainer:
         num_objects = first_frame_gt.shape[2]
         selector = data['selector'].unsqueeze(2).unsqueeze(2)
 
-        with torch.cuda.amp.autocast(enabled=self.config['amp']):
+        with torch.cuda.amp.autocast(enabled=self.config['amp']): # 这个是混合进度训练
             # image features never change, compute once
+            print("frames shape" + str(frames.shape))# [4, 8, 3, 384, 384]
+            # 对于f后面的不同数据，其实就是提前做特征，相当于浅层特征和深层特征。key和shrinkage是论文提到的
             key, shrinkage, selection, f16, f8, f4 = self.XMem('encode_key', frames)
-
+            # f16 [batch,8,1024,24,24]
             filler_one = torch.zeros(1, dtype=torch.int64)
-            hidden = torch.zeros((b, num_objects, self.config['hidden_dim'], *key.shape[-2:]))
+            hidden = torch.zeros((b, num_objects, self.config['hidden_dim'], *key.shape[-2:])) # 刚开始hidden设置成0
             v16, hidden = self.XMem('encode_value', frames[:,0], f16[:,0], hidden, first_frame_gt[:,0])
             values = v16.unsqueeze(3) # add the time dimension
 

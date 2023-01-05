@@ -1,6 +1,8 @@
 import numpy as np
 from PIL import Image
 import cv2
+import sys
+sys.path.append("/home/songx_lab/cse12012530/cv_pro/XMem/dataset")
 import thinplate as tps
 
 cv2.setNumThreads(0)

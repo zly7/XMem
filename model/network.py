@@ -13,7 +13,7 @@ from model.aggregate import aggregate
 from model.modules import *
 from model.memory_util import *
 
-
+# XMem这个是核心的前向传播的函数
 class XMem(nn.Module):
     def __init__(self, config, model_path=None, map_location=None):
         """

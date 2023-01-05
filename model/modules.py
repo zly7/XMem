@@ -145,7 +145,7 @@ class ValueEncoder(nn.Module):
         g = self.fuser(image_feat_f16, g)
 
         if is_deep_update and self.hidden_reinforce is not None:
-            h = self.hidden_reinforce(g, h)
+            h = self.hidden_reinforce(g, h)  # GRU操作，对应的是sensor memory的变化
 
         return g, h
  
@@ -205,7 +205,7 @@ class KeyProjection(nn.Module):
         nn.init.zeros_(self.key_proj.bias.data)
     
     def forward(self, x, need_s, need_e):
-        shrinkage = self.d_proj(x)**2 + 1 if (need_s) else None
+        shrinkage = self.d_proj(x)**2 + 1 if (need_s) else None  # 对应论文第10页
         selection = torch.sigmoid(self.e_proj(x)) if (need_e) else None
 
         return self.key_proj(x), shrinkage, selection

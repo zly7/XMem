@@ -1,0 +1,332 @@
+WARNING:__main__:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+CUDA Device count: 2
+CUDA Device count: 2
+I am rank 0 in this world of size 2!
+We are assuming 2 GPUs.
+We are now starting stage 3
+I will take the role of logging!
+I am rank 1 in this world of size 2!
+We are assuming 2 GPUs.
+We are now starting stage 3
+Single object mode: False
+git main afb1099d9696b6542aa06f81eae730f78d0328dd
+hyperpara {'benchmark': False, 'no_amp': False, 'static_root': '../static', 'bl_root': '../BL30K', 'yv_root': '../YouTube', 'davis_root': '../DAVIS', 'num_workers': 0, 'key_dim': 64, 'value_dim': 512, 'hidden_dim': 64, 'deep_update_prob': 0.2, 'stages': '3', 's0_batch_size': 16, 's0_iterations': 150000, 's0_finetune': 0, 's0_steps': [], 's0_lr': 1e-05, 's0_num_ref_frames': 2, 's0_num_frames': 3, 's0_start_warm': 20000, 's0_end_warm': 70000, 's1_batch_size': 8, 's1_iterations': 250000, 's1_finetune': 0, 's1_steps': [200000], 's1_lr': 1e-05, 's1_num_ref_frames': 3, 's1_num_frames': 8, 's1_start_warm': 20000, 's1_end_warm': 70000, 's2_batch_size': 8, 's2_iterations': 150000, 's2_finetune': 10000, 's2_steps': [120000], 's2_lr': 1e-05, 's2_num_ref_frames': 3, 's2_num_frames': 8, 's2_start_warm': 20000, 's2_end_warm': 70000, 's3_batch_size': 2, 's3_iterations': 100000, 's3_finetune': 10000, 's3_steps': [80000], 's3_lr': 1e-05, 's3_num_ref_frames': 3, 's3_num_frames': 8, 's3_start_warm': 20000, 's3_end_warm': 70000, 'gamma': 0.1, 'weight_decay': 0.05, 'load_network': 'saves/XMem-s0.pth', 'load_checkpoint': None, 'log_text_interval': 100, 'log_image_interval': 1000, 'save_network_interval': 25000, 'save_checkpoint_interval': 50000, 'exp_id': 'retrain_stage3_only_s3', 'debug': False, 'amp': True, 'batch_size': 1, 'iterations': 100000, 'finetune': 10000, 'steps': [80000], 'lr': 1e-05, 'num_ref_frames': 3, 'num_frames': 8, 'start_warm': 20000, 'end_warm': 70000, 'single_object': False, 'num_gpus': 2}
+Single object mode: False
+model_size 62185224
+I am loading network from a disk, as listed in configuration
+I am loading network from a disk, as listed in configuration
+Converting weights from single object to multiple objects.
+Randomly initialized padding.
+Converting weights from single object to multiple objects.
+Randomly initialized padding.
+Network weight loaded from memory.
+Network weight loaded from saves/XMem-s0.pth
+Network weight loaded from memory.
+Network weight loaded from saves/XMem-s0.pth
+3459 out of 3471 videos accepted in ../YouTube/train_480p/JPEGImages.3459 out of 3471 videos accepted in ../YouTube/train_480p/JPEGImages.
+
+60 out of 90 videos accepted in ../DAVIS/2017/trainval/JPEGImages/480p.
+60 out of 90 videos accepted in ../DAVIS/2017/trainval/JPEGImages/480p.
+YouTube dataset size: 3459
+DAVIS dataset size: 60
+Concat dataset size: 3759
+Renewed with max_skip=5
+YouTube dataset size: 3459
+DAVIS dataset size: 60
+Concat dataset size: 3759
+Renewed with max_skip=5
+We approximately use 54 epochs.
+The skip value will change approximately at the following iterations: [10000, 30000, 90000]
+Current epoch: 1
+We approximately use 54 epochs.
+The skip value will change approximately at the following iterations: [10000, 30000, 90000]
+Current epoch: 1
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])frames shapetorch.Size([1, 8, 3, 384, 384])
+
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+retrain_stage3_only_s3 - It    100 [TRAIN] [time         ]: 0.8242849
+retrain_stage3_only_s3 - It    100 [TRAIN] [total_loss   ]: 1.6500017
+retrain_stage3_only_s3 - It    100 [TRAIN] [p            ]: 1.0000000
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_1    ]: 0.0588907
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_1  ]: 0.0828971
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_2    ]: 0.0783858
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_2  ]: 0.0997304
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_3    ]: 0.1092250
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_3  ]: 0.1155108
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_4    ]: 0.1170843
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_4  ]: 0.1294106
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_5    ]: 0.1391314
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_5  ]: 0.1370321
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_6    ]: 0.1351900
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_6  ]: 0.1496049
+retrain_stage3_only_s3 - It    100 [TRAIN] [ce_loss_7    ]: 0.1495247
+retrain_stage3_only_s3 - It    100 [TRAIN] [dice_loss_7  ]: 0.1483832
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+frames shapetorch.Size([1, 8, 3, 384, 384])
+slurmstepd: error: *** JOB 1414 ON gpu021 CANCELLED AT 2023-01-05T23:39:38 ***

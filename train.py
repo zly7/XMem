@@ -16,7 +16,7 @@ from dataset.vos_dataset import VOSDataset
 from util.logger import TensorboardLogger
 from util.configuration import Configuration
 from util.load_subset import load_sub_davis, load_sub_yv
-
+import sys
 
 """
 Initial setup
@@ -28,6 +28,10 @@ print(f'CUDA Device count: {torch.cuda.device_count()}')
 # Parse command line arguments
 raw_config = Configuration()
 raw_config.parse()
+
+# # 为了方便debug，我在这里修改raw_config,
+# raw_config.__setitem__("--s3_batch_size",2)
+# raw_config.__setitem__("--num_workers",2)
 
 if raw_config['benchmark']:
     torch.backends.cudnn.benchmark = True
@@ -115,7 +119,7 @@ for si, stage in enumerate(stages_to_perform):
         worker_seed = torch.initial_seed()%(2**31) + worker_id + local_rank*100
         np.random.seed(worker_seed)
         random.seed(worker_seed)
-
+    # 这个地方显然直接直接用dataloader搞了一个数据
     def construct_loader(dataset):
         train_sampler = torch.utils.data.distributed.DistributedSampler(dataset, rank=local_rank, shuffle=True)
         train_loader = DataLoader(dataset, config['batch_size'], sampler=train_sampler, num_workers=config['num_workers'],
@@ -182,7 +186,7 @@ for si, stage in enumerate(stages_to_perform):
     else:
         # stage 2 or 3
         increase_skip_fraction = [0.1, 0.3, 0.9, 100]
-        # VOS dataset, 480p is used for both datasets
+        # VOS dataset, 480p is used for both datasets yv_root的值是Youtube理论是可以修改成Youtube2018
         yv_root = path.join(path.expanduser(config['yv_root']), 'train_480p')
         davis_root = path.join(path.expanduser(config['davis_root']), '2017', 'trainval')
 
@@ -216,8 +220,8 @@ for si, stage in enumerate(stages_to_perform):
             print(f'Current epoch: {current_epoch}')
 
             # Train loop
-            model.train()
-            for data in train_loader:
+            model.train() # 这里的model搞的是一个trainer
+            for data in train_loader:  # data里面有一个核心的rgb，是[batch,8,3,384,384]
                 # Update skip if needed
                 if stage!='0' and total_iter >= change_skip_iter[0]:
                     while total_iter >= change_skip_iter[0]:
@@ -235,7 +239,7 @@ for si, stage in enumerate(stages_to_perform):
                     model.save_network_interval = 1000
                     break
 
-                model.do_pass(data, total_iter)
+                model.do_pass(data, total_iter)  # 核心的训练函数
                 total_iter += 1
 
                 if total_iter >= config['iterations'] + config['finetune']:
