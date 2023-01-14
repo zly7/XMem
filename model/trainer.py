@@ -43,7 +43,7 @@ class XMemTrainer:
             lambda p: p.requires_grad, self.XMem.parameters()), lr=config['lr'], weight_decay=config['weight_decay'])
         self.scheduler = optim.lr_scheduler.MultiStepLR(self.optimizer, config['steps'], config['gamma'])
         if config['amp']:
-            self.scaler = torch.cuda.amp.GradScaler()
+            self.scaler = torch.cuda.amp.GradScaler()  # 这个地方scaler是amp提供的一个高阶的分布式API
 
         # Logging info
         self.log_text_interval = config['log_text_interval']
@@ -62,11 +62,11 @@ class XMemTrainer:
                 data[k] = v.cuda(non_blocking=True)
 
         out = {}
-        frames = data['rgb']
-        first_frame_gt = data['first_frame_gt'].float()
+        frames = data['rgb'] # [b,8(?),3,384,384]
+        first_frame_gt = data['first_frame_gt'].float()  # [b,1(?),3,384,384]
         b = frames.shape[0]
         num_filled_objects = [o.item() for o in data['info']['num_objects']]
-        num_objects = first_frame_gt.shape[2]
+        num_objects = first_frame_gt.shape[2] #这个非常重要，这个2是算上了batch拼接的维度，第0位永远是batch维
         selector = data['selector'].unsqueeze(2).unsqueeze(2)
 
         with torch.cuda.amp.autocast(enabled=self.config['amp']): # 这个是混合进度训练
@@ -102,12 +102,13 @@ class XMemTrainer:
                         shrinkage[bi, :, indices[bi]] for bi in range(b)
                     ], 0) if shrinkage is not None else None
 
-                # Segment frame ti
+                # Segment frame ti memory[b,3,512,24,24]
                 memory_readout = self.XMem('read_memory', key[:,:,ti], selection[:,:,ti] if selection is not None else None, 
                                         ref_keys, ref_shrinkage, ref_values)
                 hidden, logits, masks = self.XMem('segment', (f16[:,ti], f8[:,ti], f4[:,ti]), memory_readout, 
                         hidden, selector, h_out=(ti < (self.num_frames-1)))
-
+                # logit[b,?,384,384] # mask[b,num-objects,384,384]
+                # hidden 是[b,num-objects,64,24,24], 它目的是记录每个Object的时序信息，所以肯定是每个Object都有。这里可以尝试改成特斯拉的那种消融模式，而不是用GRU
                 # No need to encode the last frame
                 if ti < (self.num_frames-1):
                     is_deep_update = np.random.rand() < self.deep_update_prob

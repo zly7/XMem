@@ -12,7 +12,7 @@ from dataset.range_transform import im_normalization, im_mean
 from dataset.reseed import reseed
 
 
-class VOSDataset(Dataset):
+class VOSDataset(Dataset):  # 训练的时候加载
     """
     Works for DAVIS/YouTubeVOS/BL30K training
     For each sequence:
@@ -114,14 +114,14 @@ class VOSDataset(Dataset):
             # iterative sampling
             frames_idx = [np.random.randint(length)]
             acceptable_set = set(range(max(0, frames_idx[-1]-this_max_jump), min(length, frames_idx[-1]+this_max_jump+1))).difference(set(frames_idx))
-            while(len(frames_idx) < num_frames):
+            while(len(frames_idx) < num_frames): # 这里决定num_frames 有多少个,先确定一个中心frames_ins
                 idx = np.random.choice(list(acceptable_set))
                 frames_idx.append(idx)
                 new_set = set(range(max(0, frames_idx[-1]-this_max_jump), min(length, frames_idx[-1]+this_max_jump+1)))
                 acceptable_set = acceptable_set.union(new_set).difference(set(frames_idx))
 
             frames_idx = sorted(frames_idx)
-            if np.random.rand() < 0.5:
+            if np.random.rand() < 0.5:  #果然在这，可能反向
                 # Reverse time
                 frames_idx = frames_idx[::-1]
 
@@ -139,7 +139,7 @@ class VOSDataset(Dataset):
                 this_im = self.all_im_dual_transform(this_im)
                 this_im = self.all_im_lone_transform(this_im)
                 reseed(sequence_seed)
-                this_gt = Image.open(path.join(vid_gt_path, png_name)).convert('P')
+                this_gt = Image.open(path.join(vid_gt_path, png_name)).convert('P')  # P是panel直接调色板
                 this_gt = self.all_gt_dual_transform(this_gt)
 
                 pairwise_seed = np.random.randint(2147483647)
@@ -153,11 +153,11 @@ class VOSDataset(Dataset):
                 this_gt = np.array(this_gt)
 
                 images.append(this_im)
-                masks.append(this_gt)
+                masks.append(this_gt)  # 背景0，和对应物体
 
             images = torch.stack(images, 0)
 
-            labels = np.unique(masks[0])
+            labels = np.unique(masks[0])  # 这里就是把物体类别拿出来
             # Remove background
             labels = labels[labels!=0]
 
@@ -182,7 +182,7 @@ class VOSDataset(Dataset):
                 target_objects = labels.tolist()
                 break
 
-        if len(target_objects) > self.max_num_obj:
+        if len(target_objects) > self.max_num_obj:  # 这个地方应该是数据集保证不会多余max_num-obj
             target_objects = np.random.choice(target_objects, size=self.max_num_obj, replace=False)
 
         info['num_objects'] = max(1, len(target_objects))
@@ -190,11 +190,11 @@ class VOSDataset(Dataset):
         masks = np.stack(masks, 0)
 
         # Generate one-hot ground-truth
-        cls_gt = np.zeros((self.num_frames, 384, 384), dtype=np.int)
+        cls_gt = np.zeros((self.num_frames, 384, 384), dtype=np.int) # 背景是0
         first_frame_gt = np.zeros((1, self.max_num_obj, 384, 384), dtype=np.int)
         for i, l in enumerate(target_objects):
-            this_mask = (masks==l)
-            cls_gt[this_mask] = i+1
+            this_mask = (masks==l)  # 找出图片被标记的位置,8帧都要找
+            cls_gt[this_mask] = i+1  # 把调色板的数值转化成one-hot,第几个索引
             first_frame_gt[0,i] = (this_mask[0])
         cls_gt = np.expand_dims(cls_gt, 1)
 
@@ -205,7 +205,7 @@ class VOSDataset(Dataset):
         data = {
             'rgb': images,
             'first_frame_gt': first_frame_gt,
-            'cls_gt': cls_gt,
+            'cls_gt': cls_gt,  # 这个是分类的gt
             'selector': selector,
             'info': info,
         }

@@ -76,7 +76,7 @@ for si, stage in enumerate(stages_to_perform):
     """
     Model related
     """
-    if local_rank == 0:
+    if local_rank == 0:  # 这里应该指的是在第0张显卡上面记录
         # Logging
         if config['exp_id'].lower() != 'null':
             print('I will take the role of logging!')
@@ -190,7 +190,7 @@ for si, stage in enumerate(stages_to_perform):
         yv_root = path.join(path.expanduser(config['yv_root']), 'train_480p')
         davis_root = path.join(path.expanduser(config['davis_root']), '2017', 'trainval')
 
-        train_sampler, train_loader = renew_vos_loader(5)
+        train_sampler, train_loader = renew_vos_loader(5)  # 这个是
         renew_loader = renew_vos_loader
 
 

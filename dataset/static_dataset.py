@@ -149,7 +149,7 @@ class StaticTransformDataset(Dataset):
 
         # Generate one-hot ground-truth
         cls_gt = np.zeros((self.num_frames, 384, 384), dtype=np.int)
-        first_frame_gt = np.zeros((1, self.max_num_obj, 384, 384), dtype=np.int)
+        first_frame_gt = np.zeros((1, self.max_num_obj, 384, 384), dtype=np.int)  # 为了处理这种拼接不一致的问题
         for i, l in enumerate(target_objects):
             this_mask = (masks==l)
             cls_gt[this_mask] = i+1

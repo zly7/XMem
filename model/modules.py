@@ -214,8 +214,8 @@ class KeyProjection(nn.Module):
 class Decoder(nn.Module):
     def __init__(self, val_dim, hidden_dim):
         super().__init__()
-
-        self.fuser = FeatureFusionBlock(1024, val_dim+hidden_dim, 512, 512)
+        # 这里不做直接的拼凑的
+        self.fuser = FeatureFusionBlock(1024, val_dim+hidden_dim, 512, 512) # 1024对应f16的维度，这个就是如何把skip-connection和readout_feature融合
         if hidden_dim > 0:
             self.hidden_update = HiddenUpdater([512, 256, 256+1], 256, hidden_dim)
         else:
