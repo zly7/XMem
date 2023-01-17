@@ -1,5 +1,6 @@
 # XMem
 ## 这个是2023年SUSTECH CV 期末 project 复现论文
+## 2023-1-17最近一周的内容因为SUSTECH服务器连不上github无法提交，主要贡献请参考报告
 ## Long-Term Video Object Segmentation with an Atkinson-Shiffrin Memory Model
 
 [Ho Kei Cheng](https://hkchengrex.github.io/), [Alexander Schwing](https://www.alexander-schwing.de/)
